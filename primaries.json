@@ -1,0 +1,482 @@
+[
+    {
+      "type": "AR",
+      "name": "AMCAR"
+    },
+    {
+      "type": "AR",
+      "name": "AK"
+    },
+    {
+      "type": "AR",
+      "name": "CAR4"
+    },
+    {
+      "type": "AR",
+      "name": "UAR"
+    },
+    {
+      "type": "AR",
+      "name": "AK.762"
+    },
+    {
+      "type": "AR",
+      "name": "JP36"
+    },
+    {
+      "type": "AR",
+      "name": "Galant"
+    },
+    {
+      "type": "AR",
+      "name": "M308"
+    },
+    {
+      "type": "AR",
+      "name": "AK5"
+    },
+    {
+      "type": "AR",
+      "name": "AMR-16"
+    },
+    {
+      "type": "AR",
+      "name": "Tempest-21"
+    },
+    {
+      "type": "AR",
+      "name": "Union 5.56"
+    },
+    {
+      "type": "AR",
+      "name": "Commando 553"
+    },
+    {
+      "type": "AR",
+      "name": "Eagle Heavy"
+    },
+    {
+      "type": "AR",
+      "name": "Cavity 9mm"
+    },
+    {
+      "type": "AR",
+      "name": "AK17"
+    },
+    {
+      "type": "AR",
+      "name": "Bootleg"
+    },
+    {
+      "type": "AR",
+      "name": "Queen's Wrath"
+    },
+    {
+      "type": "AR",
+      "name": "Clarion"
+    },
+    {
+      "type": "AR",
+      "name": "Lion's Roar"
+    },
+    {
+      "type": "AR",
+      "name": "Valkyria"
+    },
+    {
+      "type": "AR",
+      "name": "Gecko 7.62"
+    },
+    {
+      "type": "AR",
+      "name": "Little Friend 7.62"
+    },
+    {
+      "type": "AR",
+      "name": "Falcon"
+    },
+    {
+      "type": "AR",
+      "name": "Gewehr 3"
+    },
+    {
+      "type": "AR",
+      "name": "Golden AK 762"
+    },
+    {
+      "type": "LMG",
+      "name": "KSP 58"
+    },
+    {
+      "type": "LMG",
+      "name": "RPK"
+    },
+    {
+      "type": "LMG",
+      "name": "KSP"
+    },
+    {
+      "type": "LMG",
+      "name": "Buzzsaw 42"
+    },
+    {
+      "type": "LMG",
+      "name": "Brenner 21"
+    },
+    {
+      "type": "LMG",
+      "name": "M60"
+    },
+    {
+      "type": "SG",
+      "name": "Reinfeld 880"
+    },
+    {
+      "type": "SG",
+      "name": "IZHMA 12G"
+    },
+    {
+      "type": "SG",
+      "name": "Mosconi 12G"
+    },
+    {
+      "type": "SG",
+      "name": "Breaker 12G"
+    },
+    {
+      "type": "SG",
+      "name": "M1014"
+    },
+    {
+      "type": "SG",
+      "name": "Raven"
+    },
+    {
+      "type": "SG",
+      "name": "Steakout 12G"
+    },
+    {
+      "type": "SG",
+      "name": "Reinfeld 88"
+    },
+    {
+      "type": "SG",
+      "name": "Mosconi 12G Tactical"
+    },
+    {
+      "type": "SG",
+      "name": "Predator 12G"
+    },
+    {
+      "type": "SG",
+      "name": "Joceline O/U 12G"
+    },
+    {
+      "type": "SR",
+      "name": "Platypus 70"
+    },
+    {
+      "type": "SR",
+      "name": "Rattlesnake"
+    },
+    {
+      "type": "SR",
+      "name": "Lebensauger .308"
+    },
+    {
+      "type": "SR",
+      "name": "Desertfox"
+    },
+    {
+      "type": "SR",
+      "name": "Contractor .308"
+    },
+    {
+      "type": "SR",
+      "name": "R93"
+    },
+    {
+      "type": "SR",
+      "name": "Repeater 1874"
+    },
+    {
+      "type": "SR",
+      "name": "Grom"
+    },
+    {
+      "type": "SR",
+      "name": "Nagant"
+    },
+    {
+      "type": "SR",
+      "name": "Thanatos .50 cal"
+    },
+    {
+      "type": "SR",
+      "name": "R700"
+    },
+    {
+      "type": "SR",
+      "name": "Bernetti Rangehitter"
+    },
+    {
+      "type": "AKIM",
+      "name": "Baby Deagle"
+    },
+    {
+      "type": "AKIM",
+      "name": "Bernetti 9"
+    },
+    {
+      "type": "AKIM",
+      "name": "Bronco .44"
+    },
+    {
+      "type": "AKIM",
+      "name": "Broomstick"
+    },
+    {
+      "type": "AKIM",
+      "name": "Chimano 88"
+    },
+    {
+      "type": "AKIM",
+      "name": "Chimano Compact"
+    },
+    {
+      "type": "AKIM",
+      "name": "Chimano Custom"
+    },
+    {
+      "type": "AKIM",
+      "name": "Crosskill"
+    },
+    {
+      "type": "AKIM",
+      "name": "Deagle"
+    },
+    {
+      "type": "AKIM",
+      "name": "Gruber Kurz"
+    },
+    {
+      "type": "AKIM",
+      "name": "Interceptor 45"
+    },
+    {
+      "type": "AKIM",
+      "name": "LEO"
+    },
+    {
+      "type": "AKIM",
+      "name": "Matever .357"
+    },
+    {
+      "type": "AKIM",
+      "name": "Parabellum"
+    },
+    {
+      "type": "AKIM",
+      "name": "Signature .40"
+    },
+    {
+      "type": "AKIM",
+      "name": "STRYK 18c"
+    },
+    {
+      "type": "AKIM",
+      "name": "White STreak"
+    },
+    {
+      "type": "AKIM",
+      "name": "Castigo .44"
+    },
+    {
+      "type": "AKIM",
+      "name": "Crosskill Guard"
+    },
+    {
+      "type": "AKIM",
+      "name": "M13 9mm"
+    },
+    {
+      "type": "AKIM",
+      "name": "Contractor"
+    },
+    {
+      "type": "AKIM",
+      "name": "Bernetti Auto"
+    },
+    {
+      "type": "AKIM",
+      "name": "Czech 92"
+    },
+    {
+      "type": "AKIM",
+      "name": "Igor Automatik"
+    },
+    {
+      "type": "AKIM",
+      "name": "HOLT 9mm"
+    },
+    {
+      "type": "AKIM",
+      "name": "Frenchman 87"
+    },
+    {
+      "type": "AKIM",
+      "name": "Crosskill Chunky Compact"
+    },
+    {
+      "type": "AKIM",
+      "name": "Goliath 12G"
+    },
+    {
+      "type": "AKIM",
+      "name": "Judge"
+    },
+    {
+      "type": "AKIM",
+      "name": "Brothers Grimm 12G"
+    },
+    {
+      "type": "AKIM",
+      "name": "Akimbo AK Gen 21 Tactical"
+    },
+    {
+      "type": "AKIM",
+      "name": "Blaster 9mm"
+    },
+    {
+      "type": "AKIM",
+      "name": "Chicago Typewriter"
+    },
+    {
+      "type": "AKIM",
+      "name": "CMP"
+    },
+    {
+      "type": "AKIM",
+      "name": "Cobra"
+    },
+    {
+      "type": "AKIM",
+      "name": "Compact-5"
+    },
+    {
+      "type": "AKIM",
+      "name": "CR 805B"
+    },
+    {
+      "type": "AKIM",
+      "name": "Heather"
+    },
+    {
+      "type": "AKIM",
+      "name": "Jackal"
+    },
+    {
+      "type": "AKIM",
+      "name": "Jacket's Piece"
+    },
+    {
+      "type": "AKIM",
+      "name": "Kobus 90"
+    },
+    {
+      "type": "AKIM",
+      "name": "Krinkov"
+    },
+    {
+      "type": "AKIM",
+      "name": "Kross Vertex"
+    },
+    {
+      "type": "AKIM",
+      "name": "Mark 10"
+    },
+    {
+      "type": "AKIM",
+      "name": "Micro Uzi"
+    },
+    {
+      "type": "AKIM",
+      "name": "MP40"
+    },
+    {
+      "type": "AKIM",
+      "name": "Para"
+    },
+    {
+      "type": "AKIM",
+      "name": "Patchett L2A1"
+    },
+    {
+      "type": "AKIM",
+      "name": "Signature"
+    },
+    {
+      "type": "AKIM",
+      "name": "SpecOps"
+    },
+    {
+      "type": "AKIM",
+      "name": "Swedish K"
+    },
+    {
+      "type": "AKIM",
+      "name": "Tatonka"
+    },
+    {
+      "type": "AKIM",
+      "name": "Uzi"
+    },
+    {
+      "type": "SPEC",
+      "name": "OVE9000"
+    },
+    {
+      "type": "SPEC",
+      "name": "XL 5.56 Microgun"
+    },
+    {
+      "type": "SPEC",
+      "name": "DECA Technologies Compound Bow"
+    },
+    {
+      "type": "SPEC",
+      "name": "Airbow"
+    },
+    {
+      "type": "SPEC",
+      "name": "Plainsrider Bow"
+    },
+    {
+      "type": "SPEC",
+      "name": "Light Crossbow"
+    },
+    {
+      "type": "SPEC",
+      "name": "English Longbow"
+    },
+    {
+      "type": "SPEC",
+      "name": "Heavy Crossbow"
+    },
+    {
+      "type": "SPEC",
+      "name": "Vulcan Minigun"
+    },
+    {
+      "type": "SPEC",
+      "name": "Piglet"
+    },
+    {
+      "type": "SPEC",
+      "name": "Flamethrower Mk.1"
+    },
+    {
+      "type": "SPEC",
+      "name": "GL40"
+    }
+]

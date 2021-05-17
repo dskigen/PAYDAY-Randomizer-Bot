@@ -1,0 +1,334 @@
+[
+  {
+    "tree": "Mastermind",
+    "name": "Combat Medic"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Quick Fix"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Painkillers"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Uppers"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Combat Doctor"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Inspire"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Forced Friendship"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Confident"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Joker"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Stockholm Syndrome"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Partners in Crime"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Hostage Taker"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Stable Shot"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Rifleman"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Marksman"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Ammo Efficiency"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Aggressive Reload"
+  },
+  {
+    "tree": "Mastermind",
+    "name": "Graze"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Underdog"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Shotgun CQB"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Shotgun Impact"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Far Away"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Close By"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Overkill"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Resilience"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Die Hard"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Transporter"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Shock and Awe"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Bullseye"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Scavenger"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Bulletstorm"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Portable Saw"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Extra Lead"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Saw Massacre"
+  },
+  {
+    "tree": "Enforcer",
+    "name": "Fully Loaded"
+  },
+  {
+    "tree": "Technician",
+    "name": "Third Law"
+  },
+  {
+    "tree": "Technician",
+    "name": "Sentry Targeting Package"
+  },
+  {
+    "tree": "Technician",
+    "name": "Eco Sentry"
+  },
+  {
+    "tree": "Technician",
+    "name": "Engineering"
+  },
+  {
+    "tree": "Technician",
+    "name": "Jack of all Trades"
+  },
+  {
+    "tree": "Technician",
+    "name": "Tower Defense"
+  },
+  {
+    "tree": "Technician",
+    "name": "Hardware Expert"
+  },
+  {
+    "tree": "Technician",
+    "name": "Combat Engineering"
+  },
+  {
+    "tree": "Technician",
+    "name": "Drill Sawgeant"
+  },
+  {
+    "tree": "Technician",
+    "name": "More Firepower"
+  },
+  {
+    "tree": "Technician",
+    "name": "Kickstarter"
+  },
+  {
+    "tree": "Technician",
+    "name": "Fire Trap"
+  },
+  {
+    "tree": "Technician",
+    "name": "Steady Grip"
+  },
+  {
+    "tree": "Technician",
+    "name": "Heavy Impact"
+  },
+  {
+    "tree": "Technician",
+    "name": "Fire Control"
+  },
+  {
+    "tree": "Technician",
+    "name": "Lock 'N Load"
+  },
+  {
+    "tree": "Technician",
+    "name": "Surefire"
+  },
+  {
+    "tree": "Technician",
+    "name": "Body Expertise"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Duck and Cover"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Parkour"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Inner Pockets"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Dire Need"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Shockproof"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Sneaky Bastard"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Second Wind"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Optical Illusions"
+  },
+  {
+    "tree": "Ghost",
+    "name": "The Professional"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Low Blow"
+  },
+  {
+    "tree": "Ghost",
+    "name": "High Value Target"
+  },
+  {
+    "tree": "Ghost",
+    "name": "Unseen Strike"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Equilibrium"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Gun Nut"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Akimbo"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "One Handed Talent"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Desperado"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Trigger Happy"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Nine Lives"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Running From Death"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Up you go"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Swan Song"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Feign Death"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Messiah"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Martial Arts"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Bloodthirst"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Pumping Iron"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Counter Strike"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Berserker"
+  },
+  {
+    "tree": "Fugitive",
+    "name": "Frenzy"
+  }
+]
