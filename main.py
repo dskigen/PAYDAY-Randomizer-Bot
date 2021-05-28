@@ -12,15 +12,6 @@ prefix = ","  # Changing this will change the prefix that the bot will listen fo
 uses = 0  # This will be tracking how many times the bot gets used -- it's mainly so I can see if its worthwhile to
 # develop updates for or if the bot has died down
 
-############################################## SETTING SOME VARIABLES FOR THE RANDOM SKILLS
-
-allowedChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-                'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D',
-                'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-                'Y', 'Z', '.', ',', '@']
-
-baseUrl = "https://pd2builder.netlify.app/?s="
-
 ############################################### JSON FILE LOADING
 
 with open("heists.json", "r") as json_file:
@@ -285,34 +276,6 @@ async def devOutput(ctx):
     if ctx.message.author.id == 638494850861367296:
         me = client.get_user(638494850861367296)
         await me.send(f"{uses} || {time.time()}")
-
-
-@commands.cooldown(1, 10, commands.BucketType.user)
-@client.command(aliases=["os"])
-async def oldSkills(ctx):
-    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):
-        global uses
-        uses = uses + 1
-        await ctx.message.delete()
-        url = baseUrl
-        amt = random.randrange(25, 35)
-        for i in range(amt):
-            url += random.choice(allowedChars)
-        if ctx.message.author.id == 588556965286772738:
-            elName = "Matty Tappy"
-        else:
-            elName = ctx.message.author.name
-        embed = discord.Embed(color=discord.Colour.random(), title=f"{elName}'s skill setup",
-                              description="Note, some points may be spare, thats 100% intentional to allow a little "
-                                          "bit of customization to it. "
-                                          ""
-                                          "For weapons/deployables/etc, use command ,build (alias ,b)")
-        embed.add_field(name=url, value="Your url")
-        await ctx.send(embed=embed)
-    else:
-        await ctx.message.delete()
-        await ctx.send("Please use a whitelisted channel (,whitelist / ,wl) to interact with me! (If your server has "
-                       "none, request an admin to add some channels to the whitelist, instructions can be found under ,help)")
 
 
 @commands.cooldown(1, 10, commands.BucketType.user)
