@@ -1,146 +1,146 @@
 [
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Chimano 88"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Crosskill"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Bernetti 9"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Bronco .44"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "White Streak"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Parabellum"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Castigo .44"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Crosskill Guard"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "STRYK 18c"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Deagle"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "M13 9mm"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Gruber Kurz"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Signature .40"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Baby Deagle"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Contractor"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "LEO"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Broomstick"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Peacemaker .45"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Matever .357"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Bernetti Auto"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Czech 92"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Igor Automatik"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "HOLT 9mm"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Frenchman Model 87"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Crosskill Chunky Compact"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Interceptor .45"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Chimano Custom"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "5/7AP"
   },
   {
-    "type": "PIS",
+    "type": "Pistol",
     "name": "Chimano Compact"
   },
   {
-    "type": "SHOT",
+    "type": "Shotgun",
     "name": "Locomotive 12G"
   },
   {
-    "type": "SHOT",
+    "type": "Shotgun",
     "name": "Goliath 12G"
   },
   {
-    "type": "SHOT",
+    "type": "Shotgun",
     "name": "Grimm 12G"
   },
   {
-    "type": "SHOT",
+    "type": "Shotgun",
     "name": "Claire 12G"
   },
   {
-    "type": "SHOT",
+    "type": "Shotgun",
     "name": "GSPS 12G"
   },
   {
-    "type": "SHOT",
+    "type": "Shotgun",
     "name": "Street Sweeper"
   },
   {
-    "type": "SHOT",
+    "type": "Shotgun",
     "name": "The Judge"
   },
   {
@@ -225,6 +225,10 @@
   },
   {
     "type": "SMG",
+    "name": "Miyaka 10 Special"
+  },
+  {
+    "type": "SMG",
     "name": "Chicago Typewriter"
   },
   {
@@ -232,35 +236,35 @@
     "name": "Jacket's Piece"
   },
   {
-    "type": "SPEC",
+    "type": "Special",
     "name": "OVE9000"
   },
   {
-    "type": "SPEC",
+    "type": "Special",
     "name": "Compact 40mm"
   },
   {
-    "type": "SPEC",
+    "type": "Special",
     "name": "MA-17 Flamethrower"
   },
   {
-    "type": "SPEC",
+    "type": "Special",
     "name": "Arbiter"
   },
   {
-    "type": "SPEC",
+    "type": "Special",
     "name": "Pistol Crossbow"
   },
   {
-    "type": "SPEC",
+    "type": "Special",
     "name": "HRL-7"
   },
   {
-    "type": "SPEC",
+    "type": "Special",
     "name": "China Puff 40mm"
   },
   {
-    "type": "SPEC",
+    "type": "Special",
     "name": "Commando 101"
   }
 ]
