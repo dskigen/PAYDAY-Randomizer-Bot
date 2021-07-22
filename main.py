@@ -101,23 +101,17 @@ def isChannelWhitelisted(channelId, guildId):
 
 
 def checkThrow(perk):
-    chance = 111
     perk = perk['name']
-    num = random.randrange(0, 100)
-    if num < chance:
-        if perk == "Kingpin":
-            throw = "Injector"
-        elif perk == "Sicario":
-            throw = "Smoke Bomb"
-        elif perk == "Stoic":
-            throw = "Stoic's Flask"
-        elif perk == "Tag Team":
-            throw = "Gas Dispenser"
-        elif perk == "Hacker":
-            throw = "Pocket ECM"
-        else:
-            throw = random.choice(throw_dict)
-            throw = throw['name']
+    if perk == "Kingpin":
+        throw = "Injector"
+    elif perk == "Sicario":
+        throw = "Smoke Bomb"
+    elif perk == "Stoic":
+        throw = "Stoic's Flask"
+    elif perk == "Tag Team":
+        throw = "Gas Dispenser"
+    elif perk == "Hacker":
+        throw = "Pocket ECM"
     else:
         throw = random.choice(throw_dict)
         throw = throw['name']
@@ -151,24 +145,25 @@ async def on_ready():
 @client.command()
 async def help(ctx):
     embed = discord.Embed(color=discord.Color.random(), title="All commands")
-    embed.add_field(name=",build (,b)",
+    embed.add_field(name="!build (!b)",
                     value="Gives you a random build (weapons, throwables, perk deck, deployables",
                     inline=False)
-    embed.add_field(name=",skills [,s]", value="Gives you random skill allocation.", inline=False)
-    embed.add_field(name=",heist [,h]", value="Gives you a random (loud-able) heist to play.", inline=False)
-    embed.add_field(name=",heistStealth [,hs]", value="Gives you a random (stealth-only) heist to play.",
+    embed.add_field(name="!skills [!s]", value="Gives you random skill allocation.", inline=False)
+    embed.add_field(name="!full [!f]", value="Gives you a random build and skill allocation simultaniously.", inline=False)
+    embed.add_field(name="!heist [!h]", value="Gives you a random (loud-able) heist to play.", inline=False)
+    embed.add_field(name="!heistStealth [!hs]", value="Gives you a random (stealth-only) heist to play.",
                     inline=False)
     embed.add_field(name="Admin Commands", value="These require the permission 'Administrator' to be used.",
                     inline=False)
-    embed.add_field(name=",whitelist [,wl]", value="Will tell you whether or not the bot can be used in this channel.",
+    embed.add_field(name="!whitelist [!wl]", value="Will tell you whether or not the bot can be used in this channel.",
                     inline=False)
-    embed.add_field(name=",whitelistAdd [,wla]", value="Adds the channel to the whitelist.", inline=False)
-    embed.add_field(name=",whitelistRemove [,wlr]", value="Removes the channel from the whitelist", inline=False)
-    embed.set_footer(text="A bot by Soariticus#0666")
+    embed.add_field(name="!whitelistAdd [!wla]", value="Adds the channel to the whitelist.", inline=False)
+    embed.add_field(name="!whitelistRemove [!wlr]", value="Removes the channel from the whitelist", inline=False)
+    embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
     await ctx.send(embed=embed)
 
 
-@client.command(aliases=["b"])
+@client.command(aliases=['b'])
 @commands.cooldown(1, 1, commands.BucketType.user)
 async def build(ctx):
     if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  # FUCK SAKE
@@ -204,7 +199,7 @@ async def build(ctx):
         embed.add_field(name="Primary Deployable", value=deploy['name'])
         embed.add_field(name="Secondary Deployable", value=deploy2)
         embed.add_field(name="Armor", value=armor['name'])
-        embed.set_footer(text="A bot by Soariticus#0666")
+        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
         await ctx.send(embed=embed)
     else:
         await ctx.message.delete()
@@ -221,7 +216,7 @@ async def heist(ctx):
         await ctx.message.delete()
         heist = random.choice(heist_dict)
         embed = discord.Embed(color=discord.Colour.random(), title=heist['name'])
-        embed.add_field(name=f"For {ctx.message.author.name}", value="Good luck")
+        embed.add_field(name=f"For {ctx.message.author.name}", value="Good luck!")
         await ctx.send(embed=embed)
     else:
         await ctx.message.delete()
@@ -300,17 +295,83 @@ async def skills(ctx):
             banned[2] = random.choice(skill_dict)
 
         embed = discord.Embed(title=f"For {ctx.message.author.name}", color=discord.Color.random())
-        embed.add_field(name="Forced Items", value="These MUST be picked (same one twice = forced ace).", inline=False)
+        embed.add_field(name="Forced Skills", value="These **MUST** be picked in your build! (If a skill rolls twice, you must ace it)", 
+                        inline=False)
         embed.add_field(name="1st Forced:", value=f"{forced[0]['tree']}: {forced[0]['name']}", inline=True)
         embed.add_field(name="2nd Forced:", value=f"{forced[1]['tree']}: {forced[1]['name']}", inline=True)
         embed.add_field(name="3rd Forced:", value=f"{forced[2]['tree']}: {forced[2]['name']}", inline=True)
 
-        embed.add_field(name="Banned Items", value="These are NOT allowed to be picked (same one twice = lucky).",
+        embed.add_field(name="Banned Skills", value="These are **NOT** allowed to be picked in your build! (If a skill rolls twice, lucky you)",
                         inline=False)
         embed.add_field(name="1st Banned:", value=f"{banned[0]['tree']}: {banned[0]['name']}", inline=True)
         embed.add_field(name="2nd Banned:", value=f"{banned[1]['tree']}: {banned[1]['name']}", inline=True)
         embed.add_field(name="3rd Banned:", value=f"{banned[2]['tree']}: {banned[2]['name']}", inline=True)
-        embed.set_footer(text="A bot by Soariticus#0666")
+        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
+
+        await ctx.send(embed=embed)
+    else:
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+
+@client.command(aliases=['f'])
+@commands.cooldown(1, 5, commands.BucketType.user)
+async def full(ctx):
+    uses = + 1;
+    await ctx.message.delete()
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):
+        prim = random.choice(prim_dict)
+        sec = random.choice(sec_dict)
+        perk = random.choice(perk_dict)
+        throw = checkThrow(perk)
+        armor = random.choice(armor_dict)
+        deploy = random.choice(deploy_dict)
+        moreDeploy = random.randrange(0, 100)
+        ICTV = random.randrange(0, 100)
+        deploy2 = None
+        if ICTV > 92:
+            armor = {"name": "Improved Combined Tactical Vest"}
+        if moreDeploy >= 90:
+            deploy2 = random.choice(deploy_dict)
+            while deploy == deploy2:
+                deploy2 = random.choice(deploy_dict)
+            deploy2 = deploy2['name']
+        if not deploy2:
+            deploy2 = "None"
+
+        embed = discord.Embed(color=discord.Colour.random(), title=f"For {ctx.author.name}",
+                              description="A completely random build!")
+        embed.add_field(name="Primary", value=f"{prim['type']}: {prim['name']}", inline=True)
+        embed.add_field(name="Secondary", value=f"{sec['type']}: {sec['name']}", inline=True)
+        embed.add_field(name="Throwable", value=throw, inline=True)
+        embed.add_field(name="Perk Deck", value=perk['name'], inline=True)
+        embed.add_field(name="Primary Deployable", value=deploy['name'], inline=True)
+        embed.add_field(name="Secondary Deployable", value=deploy2, inline=True)
+        embed.add_field(name="Armor", value=armor['name'], inline=True)
+        
+        forced = ["x", "x", "x"]
+        banned = ["x", "x", "x"]
+
+        while (common_data(forced, banned)):
+            forced[0] = random.choice(skill_dict)
+            forced[1] = random.choice(skill_dict)
+            forced[2] = random.choice(skill_dict)
+
+            banned[0] = random.choice(skill_dict)
+            banned[1] = random.choice(skill_dict)
+            banned[2] = random.choice(skill_dict)
+        
+        embed.add_field(name="Forced Skills", value="These **MUST** be picked in your build! (If a skill rolls twice, you must ace it)", 
+                        inline=False)
+        embed.add_field(name="1st Forced:", value=f"{forced[0]['tree']}: {forced[0]['name']}", inline=True)
+        embed.add_field(name="2nd Forced:", value=f"{forced[1]['tree']}: {forced[1]['name']}", inline=True)
+        embed.add_field(name="3rd Forced:", value=f"{forced[2]['tree']}: {forced[2]['name']}", inline=True)
+
+        embed.add_field(name="Banned Skills", value="These are **NOT** allowed to be picked in your build! (If a skill rolls twice, lucky you)",
+                        inline=False)
+        embed.add_field(name="1st Banned:", value=f"{banned[0]['tree']}: {banned[0]['name']}", inline=True)
+        embed.add_field(name="2nd Banned:", value=f"{banned[1]['tree']}: {banned[1]['name']}", inline=True)
+        embed.add_field(name="3rd Banned:", value=f"{banned[2]['tree']}: {banned[2]['name']}", inline=True)
+        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
 
         await ctx.send(embed=embed)
     else:
