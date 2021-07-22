@@ -14,7 +14,7 @@ uses = 0  # This will be tracking how many times the bot gets used -- it's mainl
 
 ############################################### JSON FILE LOADING
 
-with open("heists.json", "r") as json_file:
+with open("heist.json", "r") as json_file:
     heist_dict = json.load(json_file)
 
 with open("primaries.json", "r") as json_file:
@@ -169,7 +169,7 @@ async def help(ctx):
 
 
 @client.command(aliases=["b"])
-@commands.cooldown(1, 10, commands.BucketType.user)
+@commands.cooldown(1, 1, commands.BucketType.user)
 async def build(ctx):
     if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  # FUCK SAKE
         global uses
@@ -184,7 +184,7 @@ async def build(ctx):
         deploy = random.choice(deploy_dict)
         moreDeploy = random.randrange(0, 100)
         deploy2 = None
-        if moreDeploy > 75:
+        if moreDeploy > 85:
             deploy2 = random.choice(deploy_dict)
             while deploy == deploy2:
                 deploy2 = random.choice(deploy_dict)
@@ -210,14 +210,14 @@ async def build(ctx):
 
 
 @client.command(aliases=["h"])
-@commands.cooldown(1, 10, commands.BucketType.user)
+@commands.cooldown(1, 1, commands.BucketType.user)
 async def heist(ctx):
     if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):
         global uses
         uses = uses + 1
         await ctx.message.delete()
         heist = random.choice(heist_dict)
-        embed = discord.Embed(color=discord.Colour.random(), title=random.choice(heist['name']))
+        embed = discord.Embed(color=discord.Colour.random(), title=heist['name'])
         embed.add_field(name=f"For {ctx.message.author.name}", value="Good luck")
         await ctx.send(embed=embed)
     else:
@@ -257,7 +257,7 @@ async def whitelist(ctx):
 
 
 @client.command(aliases=["hs"])
-@commands.cooldown(1, 10, commands.BucketType.user)
+@commands.cooldown(1, 1, commands.BucketType.user)
 async def heistStealth(ctx):
     if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):
         global uses
@@ -278,7 +278,7 @@ async def devOutput(ctx):
         await me.send(f"{uses} || {time.time()}")
 
 
-@commands.cooldown(1, 10, commands.BucketType.user)
+@commands.cooldown(1, 1, commands.BucketType.user)
 @client.command(aliases=['s'])
 async def skills(ctx):
     uses = + 1
@@ -356,4 +356,4 @@ async def whitelistRemove(ctx, error):
     await ctx.send(embed=em)
 
 
-client.run('THIS IS WHERE YOUR TOKEN GOES')
+client.run('INSERT TOKEN HERE')
