@@ -8,7 +8,7 @@ from discord.ext import commands
 from discord.ext.commands import cooldown, BucketType, has_permissions, CheckFailure
 import random
 
-prefix = ","  # Changing this will change the prefix that the bot will listen for
+prefix = "!"  # Changing this will change the prefix that the bot will listen for
 uses = 0  # This will be tracking how many times the bot gets used -- it's mainly so I can see if its worthwhile to
 # develop updates for or if the bot has died down
 
@@ -140,7 +140,7 @@ def common_data(list1, list2):
 
 @client.event
 async def on_ready():
-    activity = discord.Game(name=",help for help", type=3)
+    activity = discord.Game(name="!help for help", type=3)
     await client.change_presence(status=discord.Status.online, activity=activity)
     print("__________________________")
     print("Ready to do some gamering")
@@ -183,8 +183,11 @@ async def build(ctx):
         armor = random.choice(armor_dict)
         deploy = random.choice(deploy_dict)
         moreDeploy = random.randrange(0, 100)
+        ICTV = random.randrange(0, 100)
         deploy2 = None
-        if moreDeploy > 85:
+        if ICTV > 92:
+            armor = {"name": "Improved Combined Tactical Vest"}
+        if moreDeploy >= 90:
             deploy2 = random.choice(deploy_dict)
             while deploy == deploy2:
                 deploy2 = random.choice(deploy_dict)
@@ -194,8 +197,8 @@ async def build(ctx):
 
         embed = discord.Embed(color=discord.Colour.random(), title=f"For {ctx.author.name}",
                               description="A completely random build!")
-        embed.add_field(name="Primary", value=prim['name'])
-        embed.add_field(name="Secondary", value=sec['name'])
+        embed.add_field(name="Primary", value=f"{prim['type']}: {prim['name']}")
+        embed.add_field(name="Secondary", value=f"{sec['type']}: {sec['name']}")
         embed.add_field(name="Throwable", value=throw)
         embed.add_field(name="Perk Deck", value=perk['name'])
         embed.add_field(name="Primary Deployable", value=deploy['name'])
@@ -205,8 +208,8 @@ async def build(ctx):
         await ctx.send(embed=embed)
     else:
         await ctx.message.delete()
-        await ctx.send("Please use a whitelisted channel (,whitelist / ,wl) to interact with me! (If your server has "
-                       "none, request an admin to add some channels to the whitelist, instructions can be found under ,help)")
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
 
 @client.command(aliases=["h"])
@@ -222,8 +225,8 @@ async def heist(ctx):
         await ctx.send(embed=embed)
     else:
         await ctx.message.delete()
-        await ctx.send("Please use a whitelisted channel (,whitelist / ,wl) to interact with me! (If your server has "
-                       "none, request an admin to add some channels to the whitelist, instructions can be found under ,help)")
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
 
 @client.command(aliases=["wla"], pass_context=True)
@@ -266,8 +269,8 @@ async def heistStealth(ctx):
         await ctx.send(f"Lmfao fucking loser {ctx.author.mention}, you wanna play stealth heist, pussy.")
     else:
         await ctx.message.delete()
-        await ctx.send("Please use a whitelisted channel (,whitelist / ,wl) to interact with me! (If your server has "
-                       "none, request an admin to add some channels to the whitelist, instructions can be found under ,help)")
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
 
 @client.command()
@@ -311,8 +314,8 @@ async def skills(ctx):
 
         await ctx.send(embed=embed)
     else:
-        await ctx.send("Please use a whitelisted channel (,whitelist / ,wl) to interact with me! (If your server has "
-                       "none, request an admin to add some channels to the whitelist, instructions can be found under ,help)")
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
 ################################################## ERROR HANDLING
 
