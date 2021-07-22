@@ -14,8 +14,14 @@ uses = 0  # This will be tracking how many times the bot gets used -- it's mainl
 
 ############################################### JSON FILE LOADING
 
-with open("heist.json", "r") as json_file:
+with open("heists.json", "r") as json_file:
     heist_dict = json.load(json_file)
+
+with open("loudheists.json", "r") as json_file:
+    lheist_dict = json.load(json_file)
+
+with open("stealthheists.json", "r") as json_file:
+    sheist_dict = json.load(json_file)
 
 with open("primaries.json", "r") as json_file:
     prim_dict = json.load(json_file)
@@ -150,8 +156,10 @@ async def help(ctx):
                     inline=False)
     embed.add_field(name="!skills [!s]", value="Gives you random skill allocation.", inline=False)
     embed.add_field(name="!full [!f]", value="Gives you a random build and skill allocation simultaniously.", inline=False)
-    embed.add_field(name="!heist [!h]", value="Gives you a random (loud-able) heist to play.", inline=False)
-    embed.add_field(name="!heistStealth [!hs]", value="Gives you a random (stealth-only) heist to play.",
+    embed.add_field(name="!heist [!h]", value="Gives you a random heist to play, including stealth and loud only heists.", inline=False)
+    embed.add_field(name="!stealthHeist [!sh]", value="Gives you a random stealth-able heist to play.",
+                    inline=False)
+    embed.add_field(name="!loudHeist [!lh]", value="Gives you a random loud-able heist to play.",
                     inline=False)
     embed.add_field(name="Admin Commands", value="These require the permission 'Administrator' to be used.",
                     inline=False)
@@ -223,6 +231,39 @@ async def heist(ctx):
         await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
                        "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
+@client.command(aliases=["sh"])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def stealthHeist(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+        heist = random.choice(sheist_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=heist['name'])
+        embed.add_field(name=f"For {ctx.message.author.name}", value="Keep it quiet!")
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+
+
+@client.command(aliases=["lh"])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def loudHeist(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+        heist = random.choice(lheist_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=heist['name'])
+        embed.add_field(name=f"For {ctx.message.author.name}", value="Make sure to pack some ammo!")
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+
 
 @client.command(aliases=["wla"], pass_context=True)
 @has_permissions(administrator=True)
@@ -252,20 +293,6 @@ async def whitelist(ctx):
     else:
         output = f"This channel is **not** on the whitelist."
     await ctx.send(output)
-
-
-@client.command(aliases=["hs"])
-@commands.cooldown(1, 1, commands.BucketType.user)
-async def heistStealth(ctx):
-    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):
-        global uses
-        uses = uses + 1
-        await ctx.message.delete()
-        await ctx.send(f"Lmfao fucking loser {ctx.author.mention}, you wanna play stealth heist, pussy.")
-    else:
-        await ctx.message.delete()
-        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
-                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
 
 @client.command()
@@ -396,8 +423,15 @@ async def heist(ctx, error):
         await ctx.send(embed=em)
 
 
-@heistStealth.error
-async def heistStealth(ctx, error):
+@stealthHeist.error
+async def stealthHeist(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.message.delete()
+        em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+        await ctx.send(embed=em)
+
+@loudHeist.error
+async def loudHeist(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         await ctx.message.delete()
         em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
