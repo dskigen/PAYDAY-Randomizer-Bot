@@ -41,6 +41,12 @@ with open("deployable.json", "r") as json_file:
 with open("armor.json", "r") as json_file:
     armor_dict = json.load(json_file)
 
+with open("smallmelee.json", "r") as json_file:
+    smelee_dict = json.load(json_file)
+
+with open("largemelee.json", "r") as json_file:
+    lmelee_dict = json.load(json_file)
+
 with open("skills.json", "r") as json_file:
     skill_dict = json.load(json_file)
 
@@ -185,6 +191,8 @@ async def build(ctx):
         throw = checkThrow(perk)
         armor = random.choice(armor_dict)
         deploy = random.choice(deploy_dict)
+        smelee = random.choice(smelee_dict)
+        lmelee = random.choice(lmelee_dict)
         moreDeploy = random.randrange(0, 100)
         ICTV = random.randrange(0, 100)
         deploy2 = None
@@ -207,6 +215,8 @@ async def build(ctx):
         embed.add_field(name="Primary Deployable", value=deploy['name'])
         embed.add_field(name="Secondary Deployable", value=deploy2)
         embed.add_field(name="Armor", value=armor['name'])
+        embed.add_field(name="Small Melee", value=smelee['name'])
+        embed.add_field(name="Large Melee", value=lmelee['name'])
         embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
         await ctx.send(embed=embed)
     else:
@@ -352,6 +362,8 @@ async def full(ctx):
         throw = checkThrow(perk)
         armor = random.choice(armor_dict)
         deploy = random.choice(deploy_dict)
+        smelee = random.choice(smelee_dict)
+        lmelee = random.choice(lmelee_dict)
         moreDeploy = random.randrange(0, 100)
         ICTV = random.randrange(0, 100)
         deploy2 = None
@@ -374,6 +386,8 @@ async def full(ctx):
         embed.add_field(name="Primary Deployable", value=deploy['name'], inline=True)
         embed.add_field(name="Secondary Deployable", value=deploy2, inline=True)
         embed.add_field(name="Armor", value=armor['name'], inline=True)
+        embed.add_field(name="Small Melee", value=smelee['name'])
+        embed.add_field(name="Large Melee", value=lmelee['name'])
         
         forced = ["x", "x", "x"]
         banned = ["x", "x", "x"]
@@ -453,5 +467,10 @@ async def whitelistRemove(ctx, error):
                                                                       f"for this command")
     await ctx.send(embed=em)
 
+@full.error
+async def full(ctx, error):
+    await ctx.message.delete()
+    em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+    await ctx.send(embed=em)
 
 client.run('INSERT TOKEN HERE')
