@@ -261,6 +261,24 @@ async def secondary(ctx):
     else:
         await ctx.message.delete()
         await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+
+
+@client.command(aliases=['lm'])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def largeMelee(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+
+        melee = random.choice(lmelee_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=f"{melee['name']}")
+        embed.add_field(name=f"For {ctx.message.author.name}", value="I hope it's not a (chain)saw...")
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
                        "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")                    
 
 
@@ -544,6 +562,12 @@ async def secondary(ctx, error):
 
 @smallMelee.error
 async def smallMelee(ctx, error):
+    await ctx.message.delete()
+    em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+    await ctx.send(embed=em)
+
+@largeMelee.error
+async def largeMelee(ctx, error):
     await ctx.message.delete()
     em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
     await ctx.send(embed=em)
