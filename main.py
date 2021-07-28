@@ -226,6 +226,24 @@ async def build(ctx):
                        "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
 
+@client.command(aliases=['pri'])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def primary(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+
+        prim = random.choice(prim_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=f"{prim['type']}: {prim['name']}")
+        embed.add_field(name=f"For {ctx.message.author.name}", value="Keep duh guns on full auto!")
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+
+
 @client.command(aliases=["h"])
 @commands.cooldown(1, 1, commands.BucketType.user)
 async def heist(ctx):
@@ -470,6 +488,12 @@ async def whitelistRemove(ctx, error):
 
 @full.error
 async def full(ctx, error):
+    await ctx.message.delete()
+    em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+    await ctx.send(embed=em)
+
+@primary.error
+async def primary(ctx, error):
     await ctx.message.delete()
     em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
     await ctx.send(embed=em)
