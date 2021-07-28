@@ -168,13 +168,15 @@ async def help(ctx):
                     inline=False)
     embed.add_field(name="!loudHeist [!lh]", value="Gives you a random loud-able heist to play.",
                     inline=False)
+    embed.add_field(name="!primary [!pri]", value="Use to reroll a primary weapon for your build if you don't own it.", inline=False)
+    embed.add_field(name="!secondary [!sec]", value="Use to reroll a secondary weapon for your build if you don't own it.", inline=False)
     embed.add_field(name="Admin Commands", value="These require the permission 'Administrator' to be used.",
                     inline=False)
     embed.add_field(name="!whitelist [!wl]", value="Will tell you whether or not the bot can be used in this channel.",
                     inline=False)
     embed.add_field(name="!whitelistAdd [!wla]", value="Adds the channel to the whitelist.", inline=False)
     embed.add_field(name="!whitelistRemove [!wlr]", value="Removes the channel from the whitelist", inline=False)
-    embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
+    embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001 and Given#0001")
     await ctx.send(embed=embed)
 
 
@@ -218,7 +220,7 @@ async def build(ctx):
         embed.add_field(name="Armor", value=armor['name'])
         embed.add_field(name="Small Melee", value=smelee['name'])
         embed.add_field(name="Large Melee", value=lmelee['name'])
-        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
+        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001 and Given#0001")
         await ctx.send(embed=embed)
     else:
         await ctx.message.delete()
@@ -242,6 +244,24 @@ async def primary(ctx):
         await ctx.message.delete()
         await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
                        "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+   
+   
+@client.command(aliases=['sec'])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def secondary(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+
+        sec = random.choice(sec_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=f"{sec['type']}: {sec['name']}")
+        embed.add_field(name=f"For {ctx.message.author.name}", value="I hope it's not a saw...")
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")                    
 
 
 @client.command(aliases=["h"])
@@ -362,7 +382,7 @@ async def skills(ctx):
         embed.add_field(name="1st Banned:", value=f"{banned[0]['tree']}: {banned[0]['name']}", inline=True)
         embed.add_field(name="2nd Banned:", value=f"{banned[1]['tree']}: {banned[1]['name']}", inline=True)
         embed.add_field(name="3rd Banned:", value=f"{banned[2]['tree']}: {banned[2]['name']}", inline=True)
-        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
+        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001 and Given#0001")
 
         await ctx.send(embed=embed)
     else:
@@ -431,7 +451,7 @@ async def full(ctx):
         embed.add_field(name="1st Banned:", value=f"{banned[0]['tree']}: {banned[0]['name']}", inline=True)
         embed.add_field(name="2nd Banned:", value=f"{banned[1]['tree']}: {banned[1]['name']}", inline=True)
         embed.add_field(name="3rd Banned:", value=f"{banned[2]['tree']}: {banned[2]['name']}", inline=True)
-        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001")
+        embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001 and Given#0001")
 
         await ctx.send(embed=embed)
     else:
@@ -494,6 +514,12 @@ async def full(ctx, error):
 
 @primary.error
 async def primary(ctx, error):
+    await ctx.message.delete()
+    em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+    await ctx.send(embed=em)
+     
+@secondary.error
+async def secondary(ctx, error):
     await ctx.message.delete()
     em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
     await ctx.send(embed=em)
