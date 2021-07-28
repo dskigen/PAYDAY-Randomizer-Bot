@@ -264,6 +264,24 @@ async def secondary(ctx):
                        "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")                    
 
 
+@client.command(aliases=['sm'])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def smallMelee(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+
+        melee = random.choice(smelee_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=f"{melee['name']}")
+        embed.add_field(name=f"For {ctx.message.author.name}", value="Now that crit build might work!")
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+
+
 @client.command(aliases=["h"])
 @commands.cooldown(1, 1, commands.BucketType.user)
 async def heist(ctx):
@@ -520,6 +538,12 @@ async def primary(ctx, error):
      
 @secondary.error
 async def secondary(ctx, error):
+    await ctx.message.delete()
+    em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+    await ctx.send(embed=em)
+
+@smallMelee.error
+async def smallMelee(ctx, error):
     await ctx.message.delete()
     em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
     await ctx.send(embed=em)
