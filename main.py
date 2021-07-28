@@ -51,6 +51,12 @@ with open("largemelee.json", "r") as json_file:
 with open("skills.json", "r") as json_file:
     skill_dict = json.load(json_file)
 
+with open("outfit.json", "r") as json_file:
+    outfit_dict = json.load(json_file)
+
+with open("glove.json", "r") as json_file:
+    glove_dict = json.load(json_file)
+
 ############################################# BOT SETUP THINGS
 
 intents = discord.Intents(typing=True, presences=True, guilds=True,
@@ -170,6 +176,10 @@ async def help(ctx):
                     inline=False)
     embed.add_field(name="!primary [!pri]", value="Use to reroll a primary weapon for your build if you don't own it.", inline=False)
     embed.add_field(name="!secondary [!sec]", value="Use to reroll a secondary weapon for your build if you don't own it.", inline=False)
+    embed.add_field(name="!smallMelee [!sm]", value="Use to reroll a small melee for your build if you don't own it.", inline=False)
+    embed.add_field(name="!largeMelee [!lm]", value="Use to reroll a large melee for your build if you don't own it.", inline=False)
+    embed.add_field(name="!outfit [!o]", value="Use to get a random outfit, the variation is up to you.", inline=False)
+    embed.add_field(name="!glove [!g]", value="Use to get a random glove selection.", inline=False)
     embed.add_field(name="Admin Commands", value="These require the permission 'Administrator' to be used.",
                     inline=False)
     embed.add_field(name="!whitelist [!wl]", value="Will tell you whether or not the bot can be used in this channel.",
@@ -349,6 +359,41 @@ async def loudHeist(ctx):
         await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
                        "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
+
+@client.command(aliases=['o'])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def outfit(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+
+        outfits = random.choice(outfit_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=f"{outfits['name']}")
+        embed.add_field(name=f"For {ctx.message.author.name}", value="Your drip, sire")
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+
+
+@client.command(aliases=['g'])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def glove(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+
+        gloves = random.choice(glove_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=f"{gloves['name']}")
+        embed.add_field(name=f"For {ctx.message.author.name}", value='"Keep them hands visibol" - Dallas 2013')
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
 
 @client.command(aliases=["wla"], pass_context=True)
 @has_permissions(administrator=True)
@@ -568,6 +613,18 @@ async def smallMelee(ctx, error):
 
 @largeMelee.error
 async def largeMelee(ctx, error):
+    await ctx.message.delete()
+    em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+    await ctx.send(embed=em)
+
+@outfit.error
+async def outfit(ctx, error):
+    await ctx.message.delete()
+    em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+    await ctx.send(embed=em)
+
+@glove.error
+async def glove(ctx, error):
     await ctx.message.delete()
     em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
     await ctx.send(embed=em)
