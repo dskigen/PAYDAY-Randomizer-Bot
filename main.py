@@ -57,6 +57,9 @@ with open("outfit.json", "r") as json_file:
 with open("glove.json", "r") as json_file:
     glove_dict = json.load(json_file)
 
+with open("characters.json", "r") as json_file:
+    characters_dict = json.load(json_file)
+
 ############################################# BOT SETUP THINGS
 
 intents = discord.Intents(typing=True, presences=True, guilds=True,
@@ -178,6 +181,7 @@ async def help(ctx):
     embed.add_field(name="!secondary [!sec]", value="Use to reroll a secondary weapon for your build if you don't own it.", inline=False)
     embed.add_field(name="!smallMelee [!sm]", value="Use to reroll a small melee for your build if you don't own it.", inline=False)
     embed.add_field(name="!largeMelee [!lm]", value="Use to reroll a large melee for your build if you don't own it.", inline=False)
+    embed.add_field(name="!character [!c]", value="Rolls a random character for you to play as.", inline=False)
     embed.add_field(name="!outfit [!o]", value="Use to get a random outfit, the variation is up to you.", inline=False)
     embed.add_field(name="!glove [!g]", value="Use to get a random glove selection.", inline=False)
     embed.add_field(name="Admin Commands", value="These require the permission 'Administrator' to be used.",
@@ -249,6 +253,24 @@ async def primary(ctx):
         prim = random.choice(prim_dict)
         embed = discord.Embed(color=discord.Colour.random(), title=f"{prim['type']}: {prim['name']}")
         embed.add_field(name=f"For {ctx.message.author.name}", value="Keep duh guns on full auto!")
+        await ctx.send(embed=embed)
+    else:
+        await ctx.message.delete()
+        await ctx.send("Please use a whitelisted channel (!whitelist / !wl) to interact with me! (If your server has "
+                       "none, request an admin to add some channels to the whitelist, instructions can be found under !help)")
+
+
+@client.command(aliases=['c'])
+@commands.cooldown(1, 1, commands.BucketType.user)
+async def characters(ctx):
+    if isChannelWhitelisted(ctx.message.channel.id, ctx.message.guild.id):  
+        global uses
+        uses = uses + 1
+        await ctx.message.delete()
+
+        char = random.choice(characters_dict)
+        embed = discord.Embed(color=discord.Colour.random(), title=f"{char['name']}")
+        embed.add_field(name=f"For {ctx.message.author.name}", value="If you reroll Ethan and Hila you're a coward.")
         await ctx.send(embed=embed)
     else:
         await ctx.message.delete()
@@ -629,4 +651,10 @@ async def glove(ctx, error):
     em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
     await ctx.send(embed=em)
 
-client.run('INSERT TOKEN HERE')
+@characters.error
+async def characters(ctx, error):
+    await ctx.message.delete()
+    em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
+    await ctx.send(embed=em)
+
+client.run('ODY3NTYzODY1NTMyOTIzOTM0.YPi70A.vFbZTe73GGlYrl_QrWHjw7NXQvg')
