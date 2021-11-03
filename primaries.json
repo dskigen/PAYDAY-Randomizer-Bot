@@ -108,6 +108,10 @@
       "name": "Golden AK 762"
     },
     {
+      "type": "Assault Rifle",
+      "name": "KS12 Urban Assault Rifle"
+    },
+    {
       "type": "LMG",
       "name": "KSP 58"
     },
@@ -334,6 +338,10 @@
     {
       "type": "Akimbo Pistols",
       "name": "Crosskill Chunky Compact"
+    },
+    {
+      "type": "Akimbo Pistols",
+      "name": "Kang Arms Model 54"
     },
     {
       "type": "Akimbo Shotguns",

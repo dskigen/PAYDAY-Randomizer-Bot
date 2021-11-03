@@ -190,7 +190,7 @@ async def help(ctx):
                     inline=False)
     embed.add_field(name="!whitelistAdd [!wla]", value="Adds the channel to the whitelist.", inline=False)
     embed.add_field(name="!whitelistRemove [!wlr]", value="Removes the channel from the whitelist", inline=False)
-    embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001 and Given#0001")
+    embed.set_footer(text="A bot by Soariticus#0666, modified by scout#0001 and Given#0893")
     await ctx.send(embed=embed)
 
 
@@ -657,4 +657,4 @@ async def characters(ctx, error):
     em = discord.Embed(title=f"Slow it down.", description=f"Try again in {error.retry_after:.2f}s.")
     await ctx.send(embed=em)
 
-client.run('ODY3NTYzODY1NTMyOTIzOTM0.YPi70A.vFbZTe73GGlYrl_QrWHjw7NXQvg')
+client.run('INSERT KEY HERE')
